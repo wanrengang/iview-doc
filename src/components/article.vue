@@ -56,23 +56,23 @@
                                     <!--<img src="../images/aside-udacity-5.jpg">-->
                                 <!--</a>-->
                                 <a v-if="ad_index === 1" href="http://t.cn/R3dhfIj" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">
-                                    <img src="../images/aside-u-1.png">
+                                    <img src="../images/aside-u-6.png">
                                 </a>
                                 <a v-if="ad_index === 2" href="http://t.cn/R3dhfIj" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">
-                                    <img src="../images/aside-u-2.png">
+                                    <img src="../images/aside-u-7.png">
                                 </a>
-                                <a v-if="ad_index === 3" href="http://t.cn/R3dhfIj" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">
-                                    <img src="../images/aside-u-3.png">
+                                <a v-if="ad_index === 3" href="https://cn.udacity.com/fend/?utm_source=iviewui&utm_medium=banner&utm_campaign=fend" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">
+                                    <img src="../images/aside-u-8.jpg">
                                 </a>
-                                <a v-if="ad_index === 4" href="http://t.cn/R3dhfIj" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">
-                                    <img src="../images/aside-u-4.png">
+                                <a v-if="ad_index === 4" href="https://cn.udacity.com/fend/?utm_source=iviewui&utm_medium=banner&utm_campaign=fend" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">
+                                    <img src="../images/aside-u-9.jpg">
                                 </a>
-                                <a v-if="ad_index === 5" href="http://t.cn/R3dhfIj" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">
-                                    <img src="../images/aside-u-5.png">
-                                </a>
-                                <a v-if="ad_index === 6" href="https://cn.udacity.com/fend/?utm_source=iviewui&utm_medium=banner&utm_campaign=fend" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">
-                                    <img src="../images/aside-udacity-5.jpg">
-                                </a>
+                                <!--<a v-if="ad_index === 5" href="http://t.cn/R3dhfIj" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">-->
+                                    <!--<img src="../images/aside-u-5.png">-->
+                                <!--</a>-->
+                                <!--<a v-if="ad_index === 6" href="https://cn.udacity.com/fend/?utm_source=iviewui&utm_medium=banner&utm_campaign=fend" target="_blank" @click="handleAsideAd('aside-udacity')" class="wrapper-aside wrapper-aside-no-padding">-->
+                                    <!--<img src="../images/aside-udacity-5.jpg">-->
+                                <!--</a>-->
                                 <a href="https://segmentfault.com/ls/1650000011074057" target="_blank" @click="handleAsideAd('aside-iview-live')" class="wrapper-aside">
                                     <img src="../images/aside-iview-live.png">
                                 </a>

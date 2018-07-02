@@ -9,7 +9,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var fs = require('fs');
 
 config.output.publicPath = 'https://file.iviewui.com/dist/';
-// config.output.publicPath = '/dist/';
+// config.output.publicPath = 'http://v2.iviewui.com/dist/';
 config.output.filename = '[name].[hash].js';                 // 带hash值的入口js名称
 config.output.chunkFilename = '[name].[hash].chunk.js';      // 带hash值的路由js名称
 

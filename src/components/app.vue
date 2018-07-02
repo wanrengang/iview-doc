@@ -70,7 +70,7 @@
         },
         mounted () {
             // 随机广告索引
-            this.ad_index = Math.floor(Math.random () * 6 + 1);
+            this.ad_index = Math.floor(Math.random () * 4 + 1);
 
             this.lang = this.$lang;
             if (window.localStorage.getItem('liveModalTime')) {
