@@ -1,10 +1,28 @@
-<style>
+<style lang="less">
     .wrapper-header-nav .ivu-menu-item i{
         margin-right: 6px;
     }
     .wrapper-header .ivu-menu{
         z-index: 901;
         box-shadow: 0 1px 1px rgba(0,0,0,.08);
+    }
+    .wrapper-header-nav-list{
+        position: relative;
+    }
+    .iview3-banner{
+        display: inline-block;
+        height: 46px;
+        vertical-align: middle;
+        img{
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        &-wrapper{
+            position: absolute;
+            top: 0;
+            left: -240px;
+        }
     }
 </style>
 <template>
@@ -29,6 +47,11 @@
                 </i-select>
             </div>
             <div class="wrapper-header-nav-list">
+                <Tooltip content="点击报名" class="iview3-banner-wrapper" v-if="lang === 'zh-CN'">
+                    <a href="http://www.huodongxing.com/event/1447326640400" target="_blank" class="iview3-banner">
+                        <img src="../images/ad-iview3.png">
+                    </a>
+                </Tooltip>
                 <Menu-item name="guide">
                     <Icon type="ios-navigate"></Icon>
                     {{ $t('index.guide') }}
