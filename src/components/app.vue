@@ -33,14 +33,14 @@
         </transition>
         <Modal v-model="showIviewModal"  width="750" :closable="false" :mask-closable="false">
             <div>
-                <a href="https://zhuanlan.zhihu.com/p/38855193" target="_blank" class="iview3-hd-banner">
-                    <img src="../images/iview3-banner.jpg">
+                <a href="https://live.bilibili.com/1353202" target="_blank" class="iview3-hd-banner">
+                    <img src="../images/banner-index3.jpg">
                 </a>
             </div>
             <div slot="footer">
                 <Button type="text" size="large" @click="feeclose">关闭</Button>
-                <Button type="ghost" size="large" @click="gotoiviewactive">了解详情</Button>
-                <Button type="primary" size="large" style="width: 100px" @click="gotofee">立即报名</Button>
+                <Button type="primary" size="large" icon="social-youtube" style="width: 120px" @click="gotofee">观看直播
+               </Button>
             </div>
         </Modal>
     </div>
@@ -81,9 +81,9 @@
             } else {
                 this.liveVisible = true;
             }
-
+            this.showIviewModal = true;
             if (this.liveVisible && this.$lang === 'zh-CN') {
-                this.showIviewModal = true;
+//                this.showIviewModal = true;
 //                this.$Notice.config({
 //                    top: 85
 //                });
@@ -149,7 +149,7 @@
             },
             gotofee () {
                 _hmt.push(['_trackEvent', 'iview3-baoming', 'click']);
-                window.open('http://www.huodongxing.com/event/1447326640400');
+                window.open('https://live.bilibili.com/1353202');
             },
             gotoiviewactive () {
                 _hmt.push(['_trackEvent', 'iview3-zhihu', 'click']);
