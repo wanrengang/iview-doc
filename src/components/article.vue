@@ -133,15 +133,15 @@
                             <div class="footer-logo">
                                 <img src="../images/logo.png">
                             </div>
-                            <!--<div class="footer-author">-->
-                                <!--<a href="https://www.talkingdata.com/">-->
-                                    <!--<img src="../images/logo-td.png">-->
-                                <!--</a>-->
-                            <!--</div>-->
-                            <!--<div class="footer-version">-->
+                            <div class="footer-author">
+                                <a href="https://www.maoyun.tv/?ref=iview" target="_blank">
+                                    <img src="../images/logo-maoyun.png">
+                                </a>
+                            </div>
+                            <div class="footer-version">
                                 <!--<p>{{ $t('index.current_version') }}</p>-->
-                                <!--<p>Vue.js 2.5.13, iView 2.9.0</p>-->
-                            <!--</div>-->
+                                <p>提供 CDN 赞助</p>
+                            </div>
                         </div>
                     </i-col>
                 </Row>
