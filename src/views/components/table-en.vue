@@ -33,6 +33,7 @@
                 <p>Table is used to display a mass of structured data.</p>
                 <p>It supports sorting, filtering, paging, custom operation, exporting to csv and many other complex functions.</p>
                 <Alert show-icon style="margin-top: 16px">Attention：Use <code>i-table</code> if not under template/render mode.</Alert>
+                <Alert type="warning">Table supports slot-scope after 3.2.0 version, <a href="https://run.iviewui.com/50ahQHrs" target="_blank">view demo</a>.</Alert>
                 <inAnchor title="Examples" h2></inAnchor>
                 <Demo title="Basic Usage" vertical hide-code>
                     <div slot="demo">
@@ -172,6 +173,26 @@
                         <p><code>render</code> accepts two arguments: the first is h, the second is an object including <code>row</code>, <code>column</code> and <code>index</code> (current row's data, current column's data, current index).</p>
                     </div>
                     <i-code lang="html" slot="code">{{ code.render }}</i-code>
+                </Demo>
+                <Demo title="Slot-scope Usage" vertical hide-code>
+                    <div slot="demo">
+                        <Table border :columns="columns12" :data="data6">
+                            <template slot-scope="{ row }" slot="name">
+                                <strong>{{ row.name }}</strong>
+                            </template>
+                            <template slot-scope="{ row, index }" slot="action">
+                                <Button type="primary" size="small" style="margin-right: 5px" @click="show(index)">View</Button>
+                                <Button type="error" size="small" @click="remove(index)">Delete</Button>
+                            </template>
+                        </Table>
+                    </div>
+                    <div slot="desc">
+                        <p>Supports after 3.2.0 version.</p>
+                        <p>After you declare a slot in a column of columns, you can use slot-scope in the slot of the Table.</p>
+                        <p>The slot-scope has three parameters: the current row data <code>row</code>, the current column data <code>column</code>, and the current row number <code>index</code>.</p>
+                        <p><a href="https://run.iviewui.com/50ahQHrs" target="_blank">See an example of using the slot-scope implementation to modify the entire row of data</a></p>
+                    </div>
+                    <i-code lang="html" slot="code">{{ code.slot }}</i-code>
                 </Demo>
                 <Demo title="Expandable" vertical hide-code>
                     <div slot="demo">
@@ -1428,6 +1449,26 @@
                         align: 'center',
                         width: 200,
                         fixed: 'right'
+                    }
+                ],
+                columns12: [
+                    {
+                        title: 'Name',
+                        slot: 'name'
+                    },
+                    {
+                        title: 'Age',
+                        key: 'age'
+                    },
+                    {
+                        title: 'Address',
+                        key: 'address'
+                    },
+                    {
+                        title: 'Action',
+                        slot: 'action',
+                        width: 150,
+                        align: 'center'
                     }
                 ],
                 data1: [

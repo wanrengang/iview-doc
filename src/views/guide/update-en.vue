@@ -30,7 +30,9 @@
                         <code>2018-12-18</code>
                     </p>
                     <ul>
-                        <li>Table supports slot-scope usage. <issue id="4847"></issue></li>
+                        <li>Table supports slot-scope usage. <issue id="4847"></issue>
+                            <a href="https://run.iviewui.com/50ahQHrs" target="_blank">view demo</a>
+                        </li>
                         <li>Tree add new property <code>check-strictly</code>, when it is turned on, in the checkbox mode, the parent-child relationship is no longer strictly followed. <issue id="4872"></issue></li>
                         <li>The @on-select-change and @on-check-change event of the Tree component return parameters add the current item. <issue id="4849"></issue></li>
                         <li>Fixed some issues with TS. <issue id="4809"></issue> <issue id="4465"></issue> <issue id="4930"></issue></li>

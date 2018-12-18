@@ -33,6 +33,7 @@
                 <p>主要用于展示大量结构化数据。</p>
                 <p>支持排序、筛选、分页、自定义操作、导出 csv 等复杂功能。</p>
                 <Alert show-icon style="margin-top: 16px">注意：非 template/render 模式下，需使用 <code>i-table</code>。</Alert>
+                <Alert type="warning">Table 从 3.2.0 版本开始，支持 slot-scope，<a href="https://run.iviewui.com/50ahQHrs" target="_blank">查看示例</a>。</Alert>
                 <inAnchor title="代码示例" h2></inAnchor>
                 <Demo title="基础用法" vertical hide-code>
                     <div slot="demo">
@@ -174,6 +175,26 @@
                         <p><study-render></study-render></p>
                     </div>
                     <i-code lang="html" slot="code">{{ code.render }}</i-code>
+                </Demo>
+                <Demo title="slot-scope 写法" vertical hide-code>
+                    <div slot="demo">
+                        <Table border :columns="columns12" :data="data6">
+                            <template slot-scope="{ row }" slot="name">
+                                <strong>{{ row.name }}</strong>
+                            </template>
+                            <template slot-scope="{ row, index }" slot="action">
+                                <Button type="primary" size="small" style="margin-right: 5px" @click="show(index)">View</Button>
+                                <Button type="error" size="small" @click="remove(index)">Delete</Button>
+                            </template>
+                        </Table>
+                    </div>
+                    <div slot="desc">
+                        <p>从 3.2.0 版本开始支持 slot-scope 写法。</p>
+                        <p>在 columns 的某列声明 slot 后，就可以在 Table 的 slot 中使用 slot-scope。</p>
+                        <p>slot-scope 的参数有 3 个：当前行数据 row，当前列数据 column，当前行序号 index。</p>
+                        <p><a href="https://run.iviewui.com/50ahQHrs" target="_blank">查看使用 slot-scope 实现修改整行数据的示例</a></p>
+                    </div>
+                    <i-code lang="html" slot="code">{{ code.slot }}</i-code>
                 </Demo>
                 <Demo title="可展开" vertical hide-code>
                     <div slot="demo">
@@ -1432,6 +1453,26 @@
                         align: 'center',
                         width: 200,
                         fixed: 'right'
+                    }
+                ],
+                columns12: [
+                    {
+                        title: 'Name',
+                        slot: 'name'
+                    },
+                    {
+                        title: 'Age',
+                        key: 'age'
+                    },
+                    {
+                        title: 'Address',
+                        key: 'address'
+                    },
+                    {
+                        title: 'Action',
+                        slot: 'action',
+                        width: 150,
+                        align: 'center'
                     }
                 ],
                 data1: [
