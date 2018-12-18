@@ -25,6 +25,30 @@
         <article class="doc-update">
             <Timeline pending>
                 <TimelineItem>
+                    <inAnchor title="3.2.0 Lost Tracks" h2></inAnchor>
+                    <p>
+                        <code>2018-12-18</code>
+                    </p>
+                    <ul>
+                        <li>Table supports slot-scope usage. <issue id="4847"></issue></li>
+                        <li>Tree add new property <code>check-strictly</code>, when it is turned on, in the checkbox mode, the parent-child relationship is no longer strictly followed. <issue id="4872"></issue></li>
+                        <li>The @on-select-change and @on-check-change event of the Tree component return parameters add the current item. <issue id="4849"></issue></li>
+                        <li>Fixed some issues with TS. <issue id="4809"></issue> <issue id="4465"></issue> <issue id="4930"></issue></li>
+                        <li>Fixed Table problem that dynamically set the group header throw errors. <issue id="3472"></issue></li>
+                        <li>Fixed InputNumber problem that the minimum value is set to a negative value and the value changes to 0. <issue id="5002"></issue></li>
+                        <li>Fixed ColorPicker problem that sometimes can't focus on the input box in transfer mode. <issue id="4826"></issue></li>
+                        <li>Fixed an issue where Modal's drag and drop functionality is not working under some browsers. <issue id="4903"></issue></li>
+                        <li>Fixed the problem that when the Drawer multi-layer nesting is used, the inner layer is closed and the outer scrolling property is wrong. <issue id="4831"></issue></li>
+                        <li>Fixed the Select problem that change slot dynamically, the bound value does not update the label. <issue id="4626"></issue></li>
+                        <li>Fixed the Select problem that layer changes position due to slot changes. <issue id="4913"></issue></li>
+                        <li>Fixed a problem where Form validation was not triggered after Select manual assignment. <issue id="4910"></issue></li>
+                        <li>Fixed the problem that the Menu is not in the correct style in primary mode.</li>
+                        <li>Modify the Upload event <code>on-form-change</code> dispatch time. <issue id="5012"></issue></li>
+                        <li>Optimize the input experience of AutoComplete. <issue id="4985"></issue></li>
+                        <li>Add Arabic. <mention id="OsamaElzero"></mention></li>
+                    </ul>
+                </TimelineItem>
+                <TimelineItem>
                     <inAnchor title="3.1.5" h2></inAnchor>
                     <p>
                         <code>2018-11-09</code>
