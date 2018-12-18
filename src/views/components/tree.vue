@@ -120,6 +120,12 @@
                             <td>String</td>
                             <td>children</td>
                         </tr>
+                        <tr>
+                            <td>check-strictly</td>
+                            <td>在显示复选框的情况下，是否严格的遵循父子不互相关联的做法</td>
+                            <td>Boolean</td>
+                            <td>false</td>
+                        </tr>
                     </tbody>
                 </table>
                 <inAnchor title="Tree events" h3></inAnchor>
@@ -135,12 +141,12 @@
                         <tr>
                             <td>on-select-change</td>
                             <td>点击树节点时触发</td>
-                            <td>当前已选中的节点数组</td>
+                            <td>当前已选中的节点数组、当前项</td>
                         </tr>
                         <tr>
                             <td>on-check-change</td>
                             <td>点击复选框时触发</td>
-                            <td>当前已勾选节点的数组</td>
+                            <td>当前已勾选节点的数组、当前项</td>
                         </tr>
                         <tr>
                             <td>on-toggle-expand</td>

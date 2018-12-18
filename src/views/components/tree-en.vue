@@ -120,6 +120,12 @@
                         <td>String</td>
                         <td>children</td>
                     </tr>
+                    <tr>
+                        <td>check-strictly</td>
+                        <td>Whether the parent and child are not strictly related in the case of displaying checkbox.</td>
+                        <td>Boolean</td>
+                        <td>false</td>
+                    </tr>
                     </tbody>
                 </table>
                 <inAnchor title="Tree events" h3></inAnchor>
@@ -135,12 +141,12 @@
                     <tr>
                         <td>on-select-change</td>
                         <td>Emitted when the tree node is clicked.</td>
-                        <td>The currently selected node array.</td>
+                        <td>The currently selected node array and the current item.</td>
                     </tr>
                     <tr>
                         <td>on-check-change</td>
                         <td>Emitted when the checkbox is clicked.</td>
-                        <td>An array of nodes is currently checked.</td>
+                        <td>An array of nodes is currently checked and the current item.</td>
                     </tr>
                     <tr>
                         <td>on-toggle-expand</td>
