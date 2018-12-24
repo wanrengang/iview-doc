@@ -25,6 +25,32 @@
         <article class="doc-update">
             <Timeline pending>
                 <TimelineItem>
+                    <Icon type="ios-snow" class="ivu-load-loop doc-update-loop" style="font-size: 24px;color: rgb(220,50,51)" slot="dot"></Icon>
+                    <inAnchor title="3.2.1" h2>
+                        <span class="doc-update-important">Merry Christmas</span>
+                    </inAnchor>
+                    <p>
+                        <code>2018-12-25</code>
+                    </p>
+                    <ul>
+                        <li>Optimize the experience of Input when entering Chinese in v-model mode. <issue id="5060"></issue></li>
+                        <li>Optimize the placeholder color of the InputNumber. <issue id="5053"></issue></li>
+                        <li>Optimize the Select style in multiple mode when the option is too long. <issue id="4938"></issue></li>
+                        <li>Fixed Select problem that can not scroll on the mobile. <issue id="4941"></issue></li>
+                        <li>Fixed Select problem that can not select in group mode in 3.2.0 version. <a href="https://github.com/iview/iview/commit/57bd5393c55e6f0101e8a2f92b5ae2dff9228ce2" target="_blank">57bd539</a></li>
+                        <li>Fixed DatePicker problem in datetime mode, switching time, floating layer position is not correct. <issue id="5046"></issue></li>
+                        <li>Fixed Cascader problem in change-on-select mode, click on the option that sometimes cannot be selected. <issue id="5021"></issue></li>
+                        <li>Fixed Cascader problem when click option, it shows the wrong selected item sometimes. <issue id="4998"></issue></li>
+                        <li>Fixed Cascader problem in filterable mode, the @on-change event returns an incorrect data. <issue id="4786"></issue></li>
+                        <li>Fixed Cascader problem that could not display the full list when it was at the far right of the page (requires the transfer property to be turned on). <issue id="4189"></issue></li>
+                        <li>Fixed Tag problem that manually modified the checked value and the UI did not respond. <issue id="4587"></issue></li>
+                        <li>Fixed Scroll on demand problem that throw error about component was not registered. <issue id="3391"></issue></li>
+                        <li>Fixed an issue that Modal's style was not correct in fullscreen mode with a width less than 768px. <issue id="4804"></issue></li>
+                        <li>Fixed some issues with TS. <issue id="5044"></issue> <issue id="5054"></issue></li>
+                        <li>Fixed an issue where Dropdown's style was wrong when used inside a Tree. <issue id="5056"></issue></li>
+                    </ul>
+                </TimelineItem>
+                <TimelineItem>
                     <inAnchor title="3.2.0 Lost Tracks" h2></inAnchor>
                     <p>
                         <code>2018-12-18</code>

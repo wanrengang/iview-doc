@@ -11,7 +11,7 @@
     <Menu mode="horizontal" :active-name="currentActiveKey" @on-select="handleSelect">
         <div class="wrapper-header-nav">
             <router-link to="/" class="wrapper-header-nav-logo">
-                <img src="../images/logo-doc.png">
+                <img src="../images/logo-doc-christmas.png">
             </router-link>
             <ApplicationMenu></ApplicationMenu>
             <div class="wrapper-header-nav-search">
