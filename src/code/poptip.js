@@ -60,7 +60,7 @@ code.placement = `
                 <Button>Left Center</Button>
             </Poptip><br><br>
             <Poptip title="Title" content="content" placement="left-end">
-                <Button>Left Right</Button>
+                <Button>Left Bottom</Button>
             </Poptip>
         </div>
         <div class="center-right">
