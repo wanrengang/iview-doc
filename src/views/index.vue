@@ -4,7 +4,7 @@
 <template>
     <div class="index">
         <div class="index-main">
-            <img src="../images/logo-doc-christmas.png" class="index-logo">
+            <img src="../images/logo-doc.png" class="index-logo">
             <div class="index-search">
                 <i-select
                         ref="select"
