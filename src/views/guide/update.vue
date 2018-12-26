@@ -25,6 +25,82 @@
         <article class="doc-update">
             <Timeline pending>
                 <TimelineItem>
+                    <Icon type="ios-snow" class="ivu-load-loop doc-update-loop" style="font-size: 24px;color: rgb(220,50,51)" slot="dot"></Icon>
+                    <inAnchor title="3.2.1" h2>
+                        <span class="doc-update-important">Merry Christmas</span>
+                    </inAnchor>
+                    <p>
+                        <code>2018-12-25</code>
+                    </p>
+                    <ul>
+                        <li>优化 Input 的 v-model 在输入中文时的体验。<issue id="5060"></issue></li>
+                        <li>优化 InputNumber 的 placeholder 颜色。<issue id="5053"></issue></li>
+                        <li>优化 Select 在 multiple 模式下，选项过长的样式。<issue id="4938"></issue></li>
+                        <li>修复 Select 列表无法在移动端滚动的问题。<issue id="4941"></issue></li>
+                        <li>修复由 3.2.0 版本导致 Select 在 group 模式下，无法选择的问题。<a href="https://github.com/iview/iview/commit/57bd5393c55e6f0101e8a2f92b5ae2dff9228ce2" target="_blank">57bd539</a></li>
+                        <li>修复 DatePicker 在 datetime 模式下，切换时间，浮层位置不正确的问题。<issue id="5046"></issue></li>
+                        <li>修复 Cascader 在 change-on-select 模式下，点击选项有时无法选中的问题。<issue id="5021"></issue></li>
+                        <li>修复 Cascader 点击选项有时显示错误的问题。<issue id="4998"></issue></li>
+                        <li>修复 Cascader 在 filterable 模式下，@on-change 事件返回数据不正确的问题。<issue id="4786"></issue></li>
+                        <li>修复 Cascader 在页面最右侧时，无法显示完整列表的问题（需开启 transfer 属性）。<issue id="4189"></issue></li>
+                        <li>修复 Tag 手动修改 checked 值，UI 未响应的问题。<issue id="4587"></issue></li>
+                        <li>修复 Scroll 在按需加载时，报错组件未注册的问题。<issue id="3391"></issue></li>
+                        <li>修复 Modal 在 fullscreen 模式下，宽度小于 768px 时，样式不正确的问题。<issue id="4804"></issue></li>
+                        <li>修复 TS 的一些问题。<issue id="5044"></issue> <issue id="5054"></issue></li>
+                        <li>修复 Dropdown 在 Tree 内使用时，样式不正确的问题。<issue id="5056"></issue></li>
+                    </ul>
+                </TimelineItem>
+                <TimelineItem>
+                    <inAnchor title="3.2.0 Lost Tracks" h2></inAnchor>
+                    <p>
+                        <code>2018-12-18</code>
+                    </p>
+                    <ul>
+                        <li>Table 支持 slot-scope 用法。<issue id="4847"></issue>
+                            <a href="https://run.iviewui.com/50ahQHrs" target="_blank">查看示例</a>
+                        </li>
+                        <li>Tree 新增属性 <code>check-strictly</code>，开启后，在复选框模式下，将不再严格遵循父子互相关联的做法。<issue id="4872"></issue></li>
+                        <li>Tree 的 @on-select-change 和 @on-check-change 事件返回参数新增当前项。<issue id="4849"></issue></li>
+                        <li>修复 TS 的一些问题。<issue id="4809"></issue> <issue id="4465"></issue> <issue id="4930"></issue></li>
+                        <li>修复 Table 动态设置表头分组报错的问题。<issue id="3472"></issue></li>
+                        <li>修复 InputNumber 在设置最小值为负数时，数值变化为 0 时的错误。<issue id="5002"></issue></li>
+                        <li>修复 ColorPicker 在 transfer 模式下，有时无法聚焦输入框的问题。<issue id="4826"></issue></li>
+                        <li>修复 Modal 的拖拽功能在某些浏览器下无效的问题。<issue id="4903"></issue></li>
+                        <li>修复 Drawer 多层嵌套使用时，内层关闭，外层的滚动属性错误的问题。<issue id="4831"></issue></li>
+                        <li>修复 Select 动态修改 slot 后，绑定的值未更新 label 的问题。<issue id="4626"></issue></li>
+                        <li>修复 Select 浮层有时因 slot 改变而位置发生变化的问题。<issue id="4913"></issue></li>
+                        <li>修复 Select 手动赋值后，未触发 Form 验证的问题。<issue id="4910"></issue></li>
+                        <li>修复 Menu 在 primary 模式下，样式不正确的问题。</li>
+                        <li>修改 Upload 的 on-form-change 事件派发时机。<issue id="5012"></issue></li>
+                        <li>优化 AutoComplete 的输入体验。<issue id="4985"></issue></li>
+                        <li>新增阿拉伯语。<mention id="OsamaElzero"></mention></li>
+                    </ul>
+                </TimelineItem>
+                <TimelineItem>
+                    <inAnchor title="3.1.5" h2></inAnchor>
+                    <p>
+                        <code>2018-11-09</code>
+                    </p>
+                    <ul>
+                        <li>修复 ColorPicker 在开启 transfer 时，输入框无法聚焦的问题。<issue id="4718"></issue></li>
+                        <li>修复 Slider 在使用数字输入框时，清空数值报错的问题。<issue id="4746"></issue></li>
+                        <li>修复 AutoComplete 有时无法选中、选中删除瞬间消失等问题。<issue id="4750"></issue></li>
+                        <li>修复 Table 内无法使用单元格组件 Cell 的问题。<issue id="4258"></issue></li>
+                        <li>优化 Switch 样式。<issue id="4762"></issue></li>
+                    </ul>
+                </TimelineItem>
+                <TimelineItem>
+                    <inAnchor title="3.1.4" h2></inAnchor>
+                    <p>
+                        <code>2018-10-30</code>
+                    </p>
+                    <ul>
+                        <li>Tree 新增选中及半选节点的方法 <code>getCheckedAndIndeterminateNodes</code>。<issue id="4664"></issue></li>
+                        <li>修复 Time 组件有时计算时间不准确的 bug。<issue id="4651"></issue></li>
+                        <li>新增芬兰语。<mention id="lahdekorpi"></mention></li>
+                    </ul>
+                </TimelineItem>
+                <TimelineItem>
                     <inAnchor title="3.1.3" h2></inAnchor>
                     <p>
                         <code>2018-09-30</code>
@@ -119,7 +195,7 @@
                     <Icon type="ios-trophy" size="18" slot="dot"></Icon>
                     <inAnchor title="3.0.0 Battleheart" h2></inAnchor>
                     <p>
-                        <code>2018-07-28</code>
+                        <code @dblclick="handleEgg">2018-07-28</code>
                     </p>
                     <h2>新增组件</h2>
                     <ul>
@@ -316,7 +392,13 @@
             handleBefore () {
                 window.open('http://v2.iviewui.com/docs/guide/update');
             },
-
+            handleEgg () {
+                this.$Notice.info({
+                    title: decodeURI('%E6%81%AD%E5%96%9C%E4%BD%A0%E6%89%BE%E5%88%B0%E7%AC%AC%E4%B8%89%E6%9E%9A%E5%BD%A9%E8%9B%8B'),
+                    desc: 'Keywords: Apple; Chapter 24',
+                    duration: 0
+                });
+            }
         }
     }
 </script>

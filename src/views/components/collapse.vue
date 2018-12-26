@@ -92,7 +92,7 @@
                         </Panel>
                         <Panel name="2">
                             斯蒂夫·盖瑞·沃兹尼亚克
-                            <p slot="content">斯蒂夫·盖瑞·沃兹尼亚克（Stephen Gary Wozniak），美国电脑工程师，曾与史蒂夫·乔布斯合伙创立苹果电脑（今之苹果公司）。斯蒂夫·盖瑞·沃兹尼亚克曾就读于美国科罗拉多大学，后转学入美国著名高等学府加州大学伯克利分校（UC Berkeley）并获得电机工程及计算机（EECS）本科学位（1987年）。</p>
+                            <p slot="content">斯蒂夫·盖瑞·沃兹尼亚克（Stephen Gary Wozniak），美国电脑工程师，曾与史蒂夫·乔布斯合伙创立苹果电脑（今之苹果公司）。斯蒂夫·盖瑞·沃兹尼亚克曾就读于美国科罗拉多大学，后转学入美国著名高等学府加州大学伯克利分校（UC Berkeley）并获得电机工程及计算机（EECS）本科学位（1987年）。<strong @dblclick="handleEgg">19840124</strong></p>
                         </Panel>
                         <Panel name="3">
                             乔纳森·伊夫
@@ -227,6 +227,15 @@
                 value2: '1',
                 value3: '1',
                 value4: '1-1'
+            }
+        },
+        methods: {
+            handleEgg () {
+                this.$Notice.info({
+                    title: decodeURI('%E6%81%AD%E5%96%9C%E4%BD%A0%E6%89%BE%E5%88%B0%E7%AC%AC%E4%B8%80%E6%9E%9A%E5%BD%A9%E8%9B%8B'),
+                    desc: '19840124',
+                    duration: 0
+                });
             }
         }
     }

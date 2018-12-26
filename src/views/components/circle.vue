@@ -224,7 +224,8 @@
         data () {
             return {
                 code: Code,
-                percent: 0
+                percent: 0,
+                egg: false
             }
         },
         computed: {
@@ -239,6 +240,14 @@
         methods: {
             add () {
                 if (this.percent >= 100) {
+                    if (this.egg) {
+                        this.$Notice.info({
+                            title: decodeURI('%E6%81%AD%E5%96%9C%E4%BD%A0%E6%89%BE%E5%88%B0%E7%AC%AC%E4%BA%8C%E6%9E%9A%E5%BD%A9%E8%9B%8B'),
+                            desc: 'VG95U3RvcnktUGl4YXI=',
+                            duration: 0
+                        });
+                    }
+                    this.egg = true;
                     return false;
                 }
                 this.percent += 10;
