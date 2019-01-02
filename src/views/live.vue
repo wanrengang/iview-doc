@@ -34,10 +34,9 @@
 <template>
     <i-article>
         <article style="min-height: 500px">
-            <h1>iView 讲堂</h1>
             <Card v-for="(item, index) in list" :key="item.title" style="margin-bottom: 10px;cursor: pointer;" @click.native="handleClick(index)">
                 <Row>
-                    <i-col span="6">
+                    <i-col span="7">
                         <div class="live-cover" :style="{'backgroundImage': 'url(' + item.cover + ')'}"></div>
                     </i-col>
                     <i-col span="14">
@@ -48,7 +47,7 @@
                             <div class="live-desc">{{ item.desc }}</div>
                         </div>
                     </i-col>
-                    <i-col span="4">
+                    <i-col span="3">
                         <div class="live-link">
                             <i-button type="primary">
                                 <div><Icon type="md-arrow-dropright-circle" size="20"></Icon></div>
@@ -79,9 +78,17 @@
                         title: 'iView 实战系列教程',
                         time: 'finish',
                         cost: '249 元',
-                        cover: 'https://file.iviewui.com/iview-live-cover.jpg',
+                        cover: 'https://file.iviewui.com/asd/live-1.jpg',
                         desc: '本系列课程共 21 节课，赠送 2 节答疑课。全面讲解了 iView 开发中的实际难题，包括 Table、Form、布局、配置等等。',
                         link: 'https://segmentfault.com/ls/1650000016424063'
+                    },
+                    {
+                        title: '《Vue.js 组件精讲》',
+                        time: 'finish',
+                        cost: '29.9 元',
+                        cover: 'https://file.iviewui.com/asd/live-2.jpg',
+                        desc: 'Vue.js 无疑是前端最热门的框架之一，而 Vue.js 最精髓的，正是它的组件。写一个 Vue 工程，也就是在写一个个的组件。换言之，学好了 Vue.js 的组件，也就能很好的驾驭 Vue.js 框架和千变万化的复杂业务场景。',
+                        link: 'https://juejin.im/book/5bc844166fb9a05cd676ebca'
                     },
                     {
                         title: 'Vue.js 实战系列合集',
@@ -90,6 +97,14 @@
                         cover: 'https://file.iviewui.com/iview-live.png',
                         desc: '本系列系统的讲解了 Vue.js 的组件、webpack、插件和 Render 函数用法，包含示例，适合 Vue.js 初学者。 合集包含以下4课：《Vue.js 实战之组件篇》、《Vue.js 实战之工程篇》、《Vue.js 实战之插件篇》、《Vue.js 实战之 Render 函数》。 系列讲座 9折。',
                         link: 'https://segmentfault.com/ls/1650000011074057'
+                    },
+                    {
+                        title: '《Vue.js实战》',
+                        time: 'finish',
+                        cost: '79元',
+                        cover: 'https://file.iviewui.com/asd/live-3.jpg',
+                        desc: 'Vue.js作者尤雨溪作推荐序，业界前端大腕 TalkingData 研发副总裁 马骥、w3cplus.com站长 大漠、justjavac（迷渡）、laravel-china.org站长 Summer 联袂推荐！iView 作者著，突出实战，应用为王。',
+                        link: 'https://item.jd.com/12215519.html'
                     },
 //                    {
 //                        title: 'Vue.js 实战之插件篇',

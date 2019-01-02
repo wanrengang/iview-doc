@@ -14,7 +14,7 @@
             </a>
             <Affix :offset-top="64" class="asd-affix" @on-change="handleChangeAdAffix">
                 <Carousel v-model="adCarousel" autoplay :autoplay-speed="5000" radius-dot v-if="app.adList4.length && adCarouselShow" arrow="never">
-                    <CarouselItem v-for="item in app.adList4" :key="item.id">
+                    <CarouselItem v-for="item in carouselList" :key="item.id">
                         <a :href="item.link" target="_blank" class="asd asd-mb" @click="handleAsideAd(item.id)">
                             <div class="asd-main asd-main-no-opacity">
                                 <img :src="item.img">
@@ -116,6 +116,8 @@
     import bus from './bus';
     import adSend from './ad-send.vue';
 
+    function randomSort(a, b) { return Math.random() > 0.5 ? -1 : 1; }
+
     export default {
         inject: ['app'],
         components: { adSend },
@@ -133,6 +135,12 @@
                 showAd: false,
                 adCarousel: 0,
                 adCarouselShow: false
+            }
+        },
+        computed: {
+            carouselList () {
+                const list = this.app.adList4 || [];
+                return list.sort(randomSort);
             }
         },
         methods: {
