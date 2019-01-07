@@ -196,7 +196,7 @@
             getAdList (name) {
                 $.ajax({
                     method: 'get',
-                    url: '/v1/infop/list',
+                    url: '/v1/areq/list',
                     params: {
                         name: name
                     }
