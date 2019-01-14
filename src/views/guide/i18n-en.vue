@@ -48,6 +48,7 @@
                 <li>Traditional Mongolian(mn-TR)</li>
                 <li>Finnish(fi-FI)</li>
                 <li>Arabic(ar-SA)</li>
+                <li>Danish(da-DK)</li>
             </ul>
             <p>If your target language is not included, you are more than welcome to contribute: just add another language config <a href="https://github.com/iview/iview/tree/2.0/src/locale/lang" target="_blank">here</a> and create a pull request.</p>
         </article>

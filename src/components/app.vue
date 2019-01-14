@@ -196,7 +196,7 @@
             getAdList (name) {
                 $.ajax({
                     method: 'get',
-                    url: '/v1/name/list',
+                    url: '/v1/asd/list2',
                     params: {
                         name: name
                     }

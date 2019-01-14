@@ -25,6 +25,32 @@
         <article class="doc-update">
             <Timeline pending>
                 <TimelineItem>
+                    <inAnchor title="3.2.2" h2></inAnchor>
+                    <p>
+                        <code>2019-01-14</code>
+                    </p>
+                    <ul>
+                        <li>修复由 3.2.0 版本导致 Select 在 remote 模式下，选择出错的问题。<issue id="5087"></issue></li>
+                        <li>修复 Select 内的 Option 动态改变时，有时选中值未更新的问题。<issue id="5090"></issue></li>
+                        <li>修复 Select 在 filterable 模式下，失焦后搜索词未清空的问题。<issue id="5155"></issue></li>
+                        <li>修复 Select 在 filterable 模式下，有时按回车键报错的问题。<issue id="5116"></issue></li>
+                        <li>修复 AutoComplete 主动赋值后，强行显示下拉框的问题。<issue id="5150"></issue></li>
+                        <li>修复 Slider 在 range 模式下，点击滑条有时重叠的问题。<issue id="3968"></issue></li>
+                        <li>修复 Slider 在 range 模式下，两个滑块到 100% 位置时，无法向左拖动的问题。<issue id="4281"></issue></li>
+                        <li>修复 Slider 修改 currentValue 的触发条件。<issue id="3400"></issue></li>
+                        <li>修复 Slider 改变宽度时，滑动速率不一致的问题。<issue id="5183"></issue></li>
+                        <li>修复 Divider 在 dashed 模式下，样式不正确的问题。<issue id="5135"></issue></li>
+                        <li>修复 Cascader 宽度较小时，内容样式不正确的问题。<issue id="5153"></issue></li>
+                        <li>修复 Tabs 内含有表单组件时，按下 tab 键样式出错的问题。<issue id="5111"></issue></li>
+                        <li>修复 Drawer 使用 inner 时，滚动条闪动的问题。<issue id="5076"></issue></li>
+                        <li>修复 Table 表头固定且内容为空时，有时表头样式错误的问题。<issue id="5174"></issue></li>
+                        <li>修复 Tag 在 dot 和 color 模式下，样式不正确的问题。<issue id="5194"></issue></li>
+                        <li>修复 TS 的一些问题。<issue id="5147"></issue> <issue id="5156"></issue></li>
+                        <li>更新意大利语。<issue id="5182"></issue></li>
+                        <li>新增丹麦语。<issue id="5154"></issue> <mention id="miloandco"></mention></li>
+                    </ul>
+                </TimelineItem>
+                <TimelineItem>
                     <Icon type="ios-snow" class="ivu-load-loop doc-update-loop" style="font-size: 24px;color: rgb(220,50,51)" slot="dot"></Icon>
                     <inAnchor title="3.2.1" h2>
                         <span class="doc-update-important">Merry Christmas</span>

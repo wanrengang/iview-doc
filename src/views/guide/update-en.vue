@@ -25,6 +25,32 @@
         <article class="doc-update">
             <Timeline pending>
                 <TimelineItem>
+                    <inAnchor title="3.2.2" h2></inAnchor>
+                    <p>
+                        <code>2019-01-14</code>
+                    </p>
+                    <ul>
+                        <li>Fixed Select problem that can not select accurately under remote mode in 3.2.0 version. <issue id="5087"></issue></li>
+                        <li>Fixed Select problem that the selected value is not updated when Option changes dynamically sometimes. <issue id="5090"></issue></li>
+                        <li>Fixed Select problem that the query is not cleared when blur in filterable mode. <issue id="5155"></issue></li>
+                        <li>Fixed Select problem In filterable mode, sometimes press the Enter key to report an error. <issue id="5116"></issue></li>
+                        <li>Fixed AutoComplete problem that the Dropdown will be displayed after set value. <issue id="5150"></issue></li>
+                        <li>Fixed Slider In range mode, click on the sliders that sometimes overlap. <issue id="3968"></issue></li>
+                        <li>Fixed the problem that the Slider can't drag to the left when the two sliders are in the 100% position in range mode. <issue id="4281"></issue></li>
+                        <li>Fixed the trigger condition that Slider modifies currentValue. <issue id="3400"></issue></li>
+                        <li>Fixed an issue where the sliding rate was inconsistent when the Slider changed its width. <issue id="5183"></issue></li>
+                        <li>Fixed an issue where Divider was not styled correctly in dashed mode. <issue id="5135"></issue></li>
+                        <li>Fixed an issue where the content style was incorrect when Cascader's width was too small. <issue id="5153"></issue></li>
+                        <li>Fixed an issue where pressing the tab style error when Input was included in the Tabs. <issue id="5111"></issue></li>
+                        <li>Fixed an issue where the scrollbar flashed when Drawer used inner property. <issue id="5076"></issue></li>
+                        <li>Fixed an issue where the table header was fixed and the content was empty, sometimes the header style was wrong. <issue id="5174"></issue></li>
+                        <li>Fixed the problem that the Tag style is not correct in dot and color mode. <issue id="5194"></issue></li>
+                        <li>Fixed some issues with TS. <issue id="5147"></issue> <issue id="5156"></issue></li>
+                        <li>Update Italian. <issue id="5182"></issue></li>
+                        <li>Added Danish. <issue id="5154"></issue> <mention id="miloandco"></mention></li>
+                    </ul>
+                </TimelineItem>
+                <TimelineItem>
                     <Icon type="ios-snow" class="ivu-load-loop doc-update-loop" style="font-size: 24px;color: rgb(220,50,51)" slot="dot"></Icon>
                     <inAnchor title="3.2.1" h2>
                         <span class="doc-update-important">Merry Christmas</span>
