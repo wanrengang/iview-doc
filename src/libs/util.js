@@ -77,4 +77,35 @@ util.ajax = axios.create({
     timeout: 30000
 });
 
+const store = {
+    get (key) {
+        const value = localStorage.getItem(key);
+        if (value) {
+            try {
+                const value_json = JSON.parse(value);
+                if (typeof value_json === 'object') {
+                    return value_json;
+                } else if (typeof value_json === 'number') {
+                    return value_json;
+                }
+            } catch(e) {
+                return value;
+            }
+        } else {
+            return false;
+        }
+    },
+    set (key, value) {
+        localStorage.setItem(key, value);
+    },
+    remove (key) {
+        localStorage.removeItem(key);
+    },
+    clear () {
+        localStorage.clear();
+    }
+};
+
+util.store = store;
+
 export default util;

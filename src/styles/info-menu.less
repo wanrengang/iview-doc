@@ -1,0 +1,63 @@
+.info-menu{
+    display: inline-block;
+    margin-left: 32px;
+
+    .ivu-btn-text:focus{
+        box-shadow: none;
+    }
+
+    &-sign{
+        &-in {
+            cursor: pointer;
+            display: inline-block;
+
+            button.ivu-btn {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .ivu-avatar{
+                background-color: #87d068;
+                .ivu-icon{
+                    top: -2px;
+                }
+            }
+        }
+    }
+
+    &-add, &-more{
+        display: inline-block;
+
+        .ivu-btn-large{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    &-add{
+        &-dropdown{
+            font-size: 14px !important;
+            span{
+                vertical-align: middle;
+            }
+            .ivu-icon{
+                vertical-align: middle;
+                margin-right: 5px;
+                &.normal{
+                    display: inline-block;
+                    width: 16px;
+                    font-size: 16px;
+                }
+            }
+            button .ivu-icon{
+                margin-right: 0;
+            }
+        }
+        &-write{
+            .ivu-dropdown-item{
+                font-size: 14px !important;
+                padding: 8px 16px;
+            }
+        }
+    }
+}

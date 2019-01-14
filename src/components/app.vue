@@ -89,7 +89,9 @@
                 adList1: [],
                 adList2: [],
                 adList3: [],
-                adList4: []
+                adList4: [],
+                userInfo: $.store.get('userInfo') || null,
+                token: $.store.get('token') || '',
             }
         },
         computed: {
@@ -161,6 +163,13 @@
             window.clickAdVideo = function () {
                 _hmt.push(['_trackEvent', 'index-ad-video', 'click'])
             }
+
+            this.handleUpdateSettings();
+            this.getAdList(1);
+            this.getAdList(2);
+            this.getAdList(3);
+            this.getAdList(4);
+
         },
         methods: {
             getTodayUnix () {
@@ -209,14 +218,48 @@
                         this[`adList${name}`] = data.data;
                     }
                 })
-            }
-        },
-        mounted () {
-            this.handleUpdateSettings();
-            this.getAdList(1);
-            this.getAdList(2);
-            this.getAdList(3);
-            this.getAdList(4);
+            },
+            getUserInfo (callback) {
+                const token = $.store.get('token');
+                if (token) {
+                    $.ajax({
+                        url: '/v1/user/info',
+                        method: 'post',
+                        data: {
+                            token: token
+                        }
+                    }).then(res => {
+                        const data = res.data;
+                        if (data.code !== 200) {
+                            this.$Message.error(data.msg);
+                        } else {
+                            const userInfo = data.data;
+                            $.store.set('userInfo', JSON.stringify(userInfo));
+
+                            this.userInfo = userInfo;
+                            this.token = token;
+                        }
+                        if (callback) callback();
+                    }).catch(err => {
+                        const status = err.response.status;
+                        if (status === 401) {
+                            $.store.remove('userInfo');
+                            $.store.remove('token');
+                            this.userInfo = null;
+                            this.token = '';
+
+                            this.$Notice.error({
+                                title: '登录信息错误',
+                                desc: '您当前的登录状态存在错误，请重新登录',
+                                duration: 0
+                            });
+                        }
+                    })
+                } else {
+                    this.userInfo = null;
+                    this.token = '';
+                }
+            },
         }
     }
 </script>
