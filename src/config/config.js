@@ -7,7 +7,7 @@ let config = {
     env: Env,
     filePath: 'https://file.iviewui.com/file/',
     version: 60,
-    liveVersion: 3
+    liveVersion: 3,
 };
 
 if (config.env === 'development') {

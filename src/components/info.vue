@@ -1,6 +1,44 @@
 <template>
     <div class="info-menu">
-        <div class="info-menu-sign-in">
+        <div class="info-menu-sign-out" v-if="app.userInfo">
+            <Dropdown @on-click="handleClickItem" trigger="click" class="info-menu-add-dropdown">
+                <Badge :count="countUnread" :offset="[18, 2]">
+                    <Avatar class="dev-header-aside-icon" :src="app.userInfo.avatar + '/avatar'" />
+                </Badge>
+                <DropdownMenu slot="list" class="info-menu-user">
+                    <DropdownItem name="me">
+                        <strong class="info-menu-user-name">{{ app.userInfo.name }}</strong>
+                        <dev-vip-grade :grade="app.userInfo.vip_grade" class-name="info-menu-aside-vip"></dev-vip-grade>
+                    </DropdownItem>
+                    <DropdownItem name="home" divided>
+                        <Icon type="ios-person-outline" class="normal"></Icon>
+                        <span>我的主页</span>
+                    </DropdownItem>
+                    <DropdownItem name="checkmail" v-if="!app.userInfo.is_activity">
+                        <Icon type="ios-mail-outline" class="normal"></Icon>
+                        <Badge dot><span>验证邮箱</span></Badge>
+                    </DropdownItem>
+                    <DropdownItem name="notify">
+                        <Icon type="ios-notifications-outline" class="normal"></Icon>
+                        <span>通知</span>
+                        <Badge :count="countUnread"></Badge>
+                    </DropdownItem>
+                    <DropdownItem name="upgrade" v-if="app.userInfo.vip_grade !== 1">
+                        <Icon custom="i-icon i-icon-vip" class="normal" size="13"></Icon>
+                        <span>我的会员</span>
+                    </DropdownItem>
+                    <DropdownItem name="upgrade" v-if="app.userInfo.vip_grade === 1">
+                        <Icon custom="i-icon i-icon-vip" class="normal" size="13"></Icon>
+                        <Badge dot><span>升级会员</span></Badge>
+                    </DropdownItem>
+                    <DropdownItem name="signout" divided>
+                        <Icon type="ios-log-out" class="normal"></Icon>
+                        <span>退出登录</span>
+                    </DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
+        </div>
+        <div class="info-menu-sign-in" @click="handleOpenSignIn" v-else>
             <Avatar icon="ios-person"></Avatar>
             <Button type="text" size="large">登录</Button>
         </div>
@@ -31,6 +69,40 @@
             </Button>
         </div>
 
+        <Modal title="登录 iView 开发者社区" v-model="visibleSign" width="400" footer-hide>
+            <div class="info-menu-sign-in-form">
+                <Form ref="formSignin" label-position="top" :model="formSignin" :rules="ruleSignin">
+                    <FormItem label="电子邮箱" prop="mail">
+                        <Input size="large" prefix="ios-mail-outline" v-model="formSignin.mail" />
+                    </FormItem>
+                    <FormItem label="密码" prop="password">
+                        <Input
+                                size="large"
+                                v-model="formSignin.password"
+                                :type="passwordType"
+                                :icon="passwordIcon"
+                                prefix="ios-lock-outline"
+                                @on-click="handleChangePasswordType"
+                                @on-enter="handleSignin" />
+                    </FormItem>
+                </Form>
+                <div id="vaptcha_container">
+                    <div class="vaptcha-init-main">
+                        <div class="vaptcha-init-loading">
+                            <span class="vaptcha-text">人机校验启动中...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-menu-sign-in-aside">
+                    <Button :loading="isPost" type="success" size="large" long @click="handleSignin">登录</Button>
+                    <div class="info-menu-sign-in-aside-tip">
+                        <p><a href="https://dev.iviewui.com/recover" target="_blank">忘记密码？</a></p>
+                        <p>尚未拥有账户？ <a href="https://dev.iviewui.com/signup" target="_blank">注册</a></p>
+                    </div>
+                </div>
+            </div>
+        </Modal>
+
         <Drawer width="320" v-model="visibleMore">
             <p>Some contents...</p>
             <p>Some contents...</p>
@@ -41,10 +113,41 @@
     </div>
 </template>
 <script>
+    import $ from '../libs/util';
+    import vaptcha from '../mixins/vaptcha';
+    import devVipGrade from '../components/vip-grade.vue';
+
     export default  {
+        inject: ['app'],
+        mixins: [ vaptcha ],
+        components: { devVipGrade },
         data () {
             return {
-                visibleMore: false
+                visibleMore: false,
+                visibleSign: false,
+                formSignin: {
+                    mail: '',
+                    password: ''
+                },
+                ruleSignin: {
+                    mail: [
+                        {required: true, message: '请填写邮箱', trigger: 'blur'},
+                        {type: 'email', message: '请填写正确的邮箱', trigger: 'blur'}
+                    ],
+                    password: [
+                        {required: true, message: '请填写密码', trigger: 'blur'}
+                    ]
+                },
+                isPost: false,
+                passwordType: 'password'
+            }
+        },
+        computed: {
+            passwordIcon () {
+                return this.passwordType === 'password' ? 'ios-eye' : 'ios-eye-off';
+            },
+            countUnread () {
+                return this.app.countUnread_comment + this.app.countUnread_follow + this.app.countUnread_system;
             }
         },
         methods: {
@@ -67,6 +170,98 @@
             handleOpenMore () {
                 _hmt.push(['_trackEvent', 'info-menu-more', 'click']);
                 this.visibleMore = true;
+            },
+            handleOpenSignIn () {
+                _hmt.push(['_trackEvent', 'info-menu-sign-in', 'click']);
+                this.visibleSign = true;
+            },
+            handleChangePasswordType () {
+                if (this.passwordType === 'password') this.passwordType = 'text';
+                else this.passwordType = 'password';
+            },
+            handleSignin () {
+                this.$refs.formSignin.validate((valid) => {
+                    if (valid) {
+                        if (this.vaptchaToken === '' || this.vaptchaChallenge === '') {
+                            this.$Message.error({
+                                content: '请先进行人机验证',
+                                duration: 3
+                            });
+                            return false;
+                        }
+
+                        this.isPost = true;
+                        $.ajax({
+                            method: 'post',
+                            url: '/v1/user/signin',
+                            data: {
+                                mail: this.formSignin.mail,
+                                password: this.formSignin.password,
+                                vaptcha_token: this.vaptchaToken,
+                                vaptcha_challenge: this.vaptchaChallenge
+                            }
+                        }).then(res => {
+                            this.isPost = false;
+                            const data = res.data;
+
+                            if (data.code !== 200) {
+                                this.$Message.error(data.msg);
+                                this.getVaptcha();
+                            } else {
+                                $.store.set('token', data.data.token);
+                                this.app.getUserInfo();
+                                this.app.handleGetNotificationAll();
+
+                                this.visibleSign = false;
+                                this.$Message.success('登录成功');
+                            }
+                        })
+                    } else {
+                        this.$Message.error('表单验证失败');
+                    }
+                })
+            },
+            handleClickItem (name) {
+                if (name === 'signout') {
+                    this.$Modal.confirm({
+                        title: '退出登录确认',
+                        content: '您确定要退出登录当前的账号吗？',
+                        onOk: () => {
+                            $.ajax({
+                                method: 'post',
+                                url: '/v1/user/signout',
+                                data: {
+                                    token: this.app.token
+                                }
+                            }).then(res => {
+                                const data = res.data;
+
+                                if (data.code !== 200) {
+                                    this.$Message.error(data.msg);
+                                } else {
+                                    $.store.remove('userInfo');
+                                    $.store.remove('token');
+                                    this.app.getUserInfo();
+
+                                    this.$Message.success('您已退出登录');
+                                }
+                            })
+                        }
+                    });
+                }
+                if (name === 'home' || name === 'me') {
+                    window.open('https://dev.iviewui.com/user/' + this.app.userInfo.id);
+                }
+                if (name === 'notify') {
+                    window.open('https://dev.iviewui.com/issues')
+                }
+
+                if (name === 'upgrade') {
+                    window.open('https://dev.iviewui.com/upgrade');
+                }
+                if (name === 'checkmail') {
+                    window.open('https://dev.iviewui.com/check/mail');
+                }
             }
         }
     }

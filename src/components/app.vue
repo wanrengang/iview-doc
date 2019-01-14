@@ -92,6 +92,14 @@
                 adList4: [],
                 userInfo: $.store.get('userInfo') || null,
                 token: $.store.get('token') || '',
+                notificationType: {
+                    comment: [2, 3, 4, 10],
+                    follow: [1],
+                    system: [5, 6, 7, 8, 9]
+                },
+                countUnread_comment: 0,
+                countUnread_follow: 0,
+                countUnread_system: 0,
             }
         },
         computed: {
@@ -163,6 +171,15 @@
             window.clickAdVideo = function () {
                 _hmt.push(['_trackEvent', 'index-ad-video', 'click'])
             }
+
+            this.getUserInfo();
+
+            this.handleGetNotificationAll();
+
+            // 定时获取未读数
+            this.timer_notification = setInterval(() => {
+                this.handleGetNotificationAll();
+            }, 1000 * 30);
 
             this.handleUpdateSettings();
             this.getAdList(1);
@@ -260,6 +277,32 @@
                     this.token = '';
                 }
             },
+            handleGetNotificationAll () {
+                this.getNotificationUnread('comment');
+                this.getNotificationUnread('follow');
+                this.getNotificationUnread('system');
+            },
+            getNotificationUnread (type) {
+                const token = $.store.get('token');
+                if (token) {
+                    $.ajax({
+                        method: 'get',
+                        url: '/v1/notification/count/unread',
+                        params: {
+                            token: token,
+                            types: JSON.stringify(this.notificationType[type])
+                        }
+                    }).then(res => {
+                        const data = res.data;
+
+                        if (data.code !== 200) {
+                            this.$Message.error(data.msg);
+                        } else {
+                            this['countUnread_' + type] = data.data.count;
+                        }
+                    });
+                }
+            }
         }
     }
 </script>
