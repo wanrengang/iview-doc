@@ -13,6 +13,9 @@
         to   { transform: rotate(360deg);}
     }
 </style>
+<style>
+    @import "../styles/dev/dev.css";
+</style>
 <template>
     <div>
         <router-view></router-view>

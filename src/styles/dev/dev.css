@@ -8,7 +8,7 @@
     font-style: normal;
 }
 
-.i-icon{
+.i-info-icon{
     font-family: 'devicon' !important;
     speak: none;
     font-style: normal;
@@ -19,9 +19,9 @@
     vertical-align: middle;
 }
 
-.i-icon-vip:before {
+.i-info-icon-vip:before {
     content: "\a900";
 }
-.i-icon-eglass-shop:before {
+.i-info-icon-eglass-shop:before {
     content: "\a901";
 }

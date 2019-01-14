@@ -24,11 +24,11 @@
                         <Badge :count="countUnread"></Badge>
                     </DropdownItem>
                     <DropdownItem name="upgrade" v-if="app.userInfo.vip_grade !== 1">
-                        <Icon custom="i-icon i-icon-vip" class="normal" size="13"></Icon>
+                        <Icon custom="i-info-icon i-info-icon-vip" class="normal" size="13"></Icon>
                         <span>我的会员</span>
                     </DropdownItem>
                     <DropdownItem name="upgrade" v-if="app.userInfo.vip_grade === 1">
-                        <Icon custom="i-icon i-icon-vip" class="normal" size="13"></Icon>
+                        <Icon custom="i-info-icon i-info-icon-vip" class="normal" size="13"></Icon>
                         <Badge dot><span>升级会员</span></Badge>
                     </DropdownItem>
                     <DropdownItem name="signout" divided>
