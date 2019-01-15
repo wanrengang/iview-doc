@@ -72,6 +72,8 @@
     import bus from './bus';
     import $ from '../libs/util';
 
+    import { addClass, removeClass } from 'iview/src/utils/assist.js';
+
     export default {
         provide () {
             return {
@@ -88,7 +90,8 @@
                 isSettingShow: false,
                 settingData: {
                     code: '1',  // 1, 2
-                    ad: '1'
+                    ad: '1',
+                    colorWeak: '2'
                 },
                 adList1: [],
                 adList2: [],
@@ -116,6 +119,17 @@
                 } else {
                     return 'Doc Settings';
                 }
+            },
+            isAdVisible () {
+                let visible = true;
+
+                if (this.lang !== 'zh-CN') visible = false;
+
+                if (this.settingData.ad == '2') {
+                    if (this.userInfo && this.userInfo.vip_grade > 1) visible = false;
+                }
+
+                return visible;
             }
         },
         mounted () {
@@ -222,9 +236,20 @@
                 if (window.localStorage.getItem('settings-ad')) {
                     this.settingData.ad = window.localStorage.getItem('settings-ad');
                 }
+                if (window.localStorage.getItem('settings-color-weak')) {
+                    this.settingData.colorWeak = window.localStorage.getItem('settings-color-weak');
+                    this.handleChangeBodyColorWeak();
+                }
             },
             handleSettingChangeCode (val) {
                 window.localStorage.setItem('settings-code', val);
+            },
+            handleChangeBodyColorWeak () {
+                if (this.settingData.colorWeak == '1') {
+                    addClass(document.body, 'color-weak');
+                } else {
+                    removeClass(document.body, 'color-weak');
+                }
             },
             getAdList (name) {
                 $.ajax({

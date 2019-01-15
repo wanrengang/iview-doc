@@ -185,14 +185,31 @@
                     </div>
                 </i-col>
                 <Alert class="info-menu-more-alert" type="warning" v-if="settings.ad === '2' && (!app.userInfo || app.userInfo.vip_grade === 1)">
-                    该设置目前仅对 iView Developer 付费会员有效 <a href="https://dev.iviewui.com/upgrade" target="_blank">开通会员</a>
+                    该设置目前仅对 iView Developer 付费会员有效
+                    <a href="javascript:void(0)" @click="handleOpenSignIn" v-if="!app.userInfo">登录后验证会员信息</a>
+                    <a href="https://dev.iviewui.com/upgrade" target="_blank" v-else>升级会员</a>
                 </Alert>
             </Row>
+
+            <!--<Row class="info-menu-more-item" type="flex" justify="center" align="middle">-->
+                <!--<i-col span="12">-->
+                    <!--<div class="info-menu-more-item-title normal">色弱模式</div>-->
+                <!--</i-col>-->
+                <!--<i-col span="12">-->
+                    <!--<div class="info-menu-more-item-right-align">-->
+                        <!--<Switch v-model="settings.colorWeak" true-value="1" false-value="2" @on-change="handleChangeColorWeak">-->
+                            <!--<Icon type="md-checkmark" slot="open"></Icon>-->
+                            <!--<Icon type="md-close" slot="close"></Icon>-->
+                        <!--</Switch>-->
+                    <!--</div>-->
+                <!--</i-col>-->
+            <!--</Row>-->
         </Drawer>
     </div>
 </template>
 <script>
     import $ from '../libs/util';
+    import bus from './bus';
     import vaptcha from '../mixins/vaptcha';
     import devVipGrade from '../components/vip-grade.vue';
 
@@ -202,7 +219,7 @@
         components: { devVipGrade },
         data () {
             return {
-                visibleMore: true,
+                visibleMore: false,
                 visibleSign: false,
                 formSignin: {
                     mail: '',
@@ -222,7 +239,8 @@
                 settings: {
                     lang: 'zh-CN',
                     code: '1',
-                    ad: '1'
+                    ad: '1',
+                    colorWeak: '2'
                 }
             }
         },
@@ -351,7 +369,9 @@
                 this.settings[type] = value;
 
                 if (type === 'lang') {
-
+                    const lang = this.app.lang === 'zh-CN' ? 'en-US' : 'zh-CN';
+                    const path = this.$route.path.indexOf('-en') > -1 ? this.$route.path.split('-en')[0] : this.$route.path + '-en';
+                    bus.$emit('on-change-lang', lang, path);
                 }
                 if (type === 'code') {
                     this.app.settingData.code = value;
@@ -378,7 +398,16 @@
                 if (window.localStorage.getItem('settings-ad')) {
                     this.settings.ad = window.localStorage.getItem('settings-ad');
                 }
+
+                if (window.localStorage.getItem('settings-color-weak')) {
+                    this.settings.colorWeak = window.localStorage.getItem('settings-color-weak');
+                }
             },
+            handleChangeColorWeak (value) {
+                this.app.settingData.colorWeak = value;
+                window.localStorage.setItem('settings-color-weak', value);
+                this.app.handleChangeBodyColorWeak();
+            }
         },
         mounted () {
             this.handleUpdateSettings();

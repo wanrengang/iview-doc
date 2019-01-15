@@ -1,5 +1,5 @@
 <template>
-    <div v-if="lang === 'zh-CN'">
+    <div v-if="app.isAdVisible">
         <!--<div class="advertisement" id="API">-->
             <!--<row :gutter="32">-->
                 <!--<i-col span="12">-->

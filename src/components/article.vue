@@ -42,7 +42,7 @@
                                 </Anchor>
                             </div>
 
-                            <template v-if="lang === 'zh-CN'">
+                            <template v-if="app.isAdVisible">
                                 <div style="margin-top: 20px"></div>
                                 <a v-for="item in app.adList2" :href="item.link" :key="item.id" @click="handleAsideAd(item.id)" target="_blank" class="wrapper-aside wrapper-aside-no-padding">
                                     <img :src="item.img">

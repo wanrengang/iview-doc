@@ -6,7 +6,7 @@
 </style>
 <template>
     <div class="navigate">
-        <template v-if="lang === 'zh-CN'">
+        <template v-if="app.isAdVisible">
             <a v-for="item in app.adList1" :href="item.link" target="_blank" class="asd asd-mb" :key="item.id" @click="handleAsideAd(item.id)">
                 <div class="asd-main">
                     <img :src="item.img">
