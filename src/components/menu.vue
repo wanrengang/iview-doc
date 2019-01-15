@@ -79,21 +79,23 @@
                         iView Editor
                     </Menu-item>
                 </Submenu>
-                <InfoMenu></InfoMenu>
-                <!--<Select size="small" value="3" style="width: 60px;margin: 0 10px;" @on-change="handleVersion">-->
-                    <!--<Option value="3">3.x</Option>-->
-                    <!--<Option value="2">2.x</Option>-->
-                    <!--<Option value="1">1.x</Option>-->
-                <!--</Select>-->
-                <!--<ButtonGroup size="small">-->
-                    <!--<Button icon="logo-github" @click="handleGoToGitHub"></Button>-->
-                    <!--<Button icon="logo-twitter" @click="handleGoToTwitter" v-if="lang !== 'zh-CN'"></Button>-->
-                    <!--<Button icon="ios-settings" @click="handleToggleSetting"></Button>-->
-                    <!--<Button @click="handleChangeLang" >-->
-                        <!--<template v-if="lang === 'zh-CN'">EN</template>-->
-                        <!--<template v-else>中文</template>-->
-                    <!--</Button>-->
-                <!--</ButtonGroup>-->
+                <InfoMenu v-if="lang === 'zh-CN'"></InfoMenu>
+                <template v-else>
+                    <Select size="small" value="3" style="width: 60px;margin: 0 10px;" @on-change="handleVersion">
+                        <Option value="3">3.x</Option>
+                        <Option value="2">2.x</Option>
+                        <Option value="1">1.x</Option>
+                    </Select>
+                    <ButtonGroup size="small">
+                        <Button icon="logo-github" @click="handleGoToGitHub"></Button>
+                        <Button icon="logo-twitter" @click="handleGoToTwitter" v-if="lang !== 'zh-CN'"></Button>
+                        <Button icon="ios-settings" @click="handleToggleSetting"></Button>
+                        <Button @click="handleChangeLang" >
+                            <template v-if="lang === 'zh-CN'">EN</template>
+                            <template v-else>中文</template>
+                        </Button>
+                    </ButtonGroup>
+                </template>
             </div>
         </div>
     </Menu>
