@@ -104,11 +104,90 @@
         </Modal>
 
         <Drawer width="320" v-model="visibleMore">
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-
             <Divider>文档设置</Divider>
+            <Row class="info-menu-more-item" type="flex" justify="center" align="middle">
+                <i-col span="12">
+                    <div class="info-menu-more-item-title normal">文档版本</div>
+                </i-col>
+                <i-col span="12">
+                    <div class="info-menu-more-item-main">
+                        <Select size="small" value="3" style="width: 100px" @on-change="handleChangeVersion">
+                            <Option value="3">3.x</Option>
+                            <Option value="2">2.x</Option>
+                            <Option value="1">1.x</Option>
+                        </Select>
+                    </div>
+                </i-col>
+            </Row>
+
+            <Row class="info-menu-more-item" type="flex" justify="center" align="middle">
+                <i-col span="12">
+                    <div class="info-menu-more-item-title normal">文档语言</div>
+                </i-col>
+                <i-col span="12">
+                    <div class="info-menu-more-item-main">
+                        <div class="info-menu-more-item-radio-group">
+                            <div class="info-menu-more-item-radio" :class="{'on': settings.lang === 'zh-CN'}" @click="handleChangeSettings('lang', 'zh-CN')">
+                                <Tooltip content="简体中文" placement="top">
+                                    <img src="../images/icon-lang-zh.png">
+                                </Tooltip>
+                            </div>
+                            <div class="info-menu-more-item-radio" :class="{'on': settings.lang === 'en-US'}" @click="handleChangeSettings('lang', 'en-US')">
+                                <Tooltip content="English" placement="top">
+                                    <img src="../images/icon-lang-en.png">
+                                </Tooltip>
+                            </div>
+                        </div>
+                    </div>
+                </i-col>
+            </Row>
+
+            <Row class="info-menu-more-item" type="flex" justify="center" align="middle">
+                <i-col span="12">
+                    <div class="info-menu-more-item-title normal">代码块风格</div>
+                </i-col>
+                <i-col span="12">
+                    <div class="info-menu-more-item-main">
+                        <div class="info-menu-more-item-radio-group">
+                            <div class="info-menu-more-item-radio" :class="{'on': settings.code === '1'}" @click="handleChangeSettings('code', '1')">
+                                <Tooltip content="左边示例，右边代码" placement="top">
+                                    <img src="../images/icon-code-1.png">
+                                </Tooltip>
+                            </div>
+                            <div class="info-menu-more-item-radio" :class="{'on': settings.code === '2'}" @click="handleChangeSettings('code', '2')">
+                                <Tooltip content="只有示例" placement="top">
+                                    <img src="../images/icon-code-2.png">
+                                </Tooltip>
+                            </div>
+                        </div>
+                    </div>
+                </i-col>
+            </Row>
+
+            <Row class="info-menu-more-item" type="flex" justify="center" align="middle">
+                <i-col span="12">
+                    <div class="info-menu-more-item-title normal">是否显示赞助广告</div>
+                </i-col>
+                <i-col span="12">
+                    <div class="info-menu-more-item-main">
+                        <div class="info-menu-more-item-radio-group">
+                            <div class="info-menu-more-item-radio" :class="{'on': settings.ad === '1'}" @click="handleChangeSettings('ad', '1')">
+                                <Tooltip content="显示" placement="top">
+                                    <img src="../images/icon-ad-1.png">
+                                </Tooltip>
+                            </div>
+                            <div class="info-menu-more-item-radio" :class="{'on': settings.ad === '2'}" @click="handleChangeSettings('ad', '2')">
+                                <Tooltip content="不显示" placement="top">
+                                    <img src="../images/icon-ad-2.png">
+                                </Tooltip>
+                            </div>
+                        </div>
+                    </div>
+                </i-col>
+                <Alert class="info-menu-more-alert" type="warning" v-if="settings.ad === '2' && (!app.userInfo || app.userInfo.vip_grade === 1)">
+                    该设置目前仅对 iView Developer 付费会员有效 <a href="https://dev.iviewui.com/upgrade" target="_blank">开通会员</a>
+                </Alert>
+            </Row>
         </Drawer>
     </div>
 </template>
@@ -123,7 +202,7 @@
         components: { devVipGrade },
         data () {
             return {
-                visibleMore: false,
+                visibleMore: true,
                 visibleSign: false,
                 formSignin: {
                     mail: '',
@@ -139,7 +218,12 @@
                     ]
                 },
                 isPost: false,
-                passwordType: 'password'
+                passwordType: 'password',
+                settings: {
+                    lang: 'zh-CN',
+                    code: '1',
+                    ad: '1'
+                }
             }
         },
         computed: {
@@ -262,7 +346,42 @@
                 if (name === 'checkmail') {
                     window.open('https://dev.iviewui.com/check/mail');
                 }
-            }
+            },
+            handleChangeSettings (type, value) {
+                this.settings[type] = value;
+
+                if (type === 'lang') {
+
+                }
+                if (type === 'code') {
+                    this.app.settingData.code = value;
+                    window.localStorage.setItem('settings-code', value);
+                }
+                if (type === 'ad') {
+                    this.app.settingData.ad = value;
+                    window.localStorage.setItem('settings-ad', value);
+                }
+            },
+            handleChangeVersion (v) {
+                if (v == 1) {
+                    window.location.href = 'http://v1.iviewui.com';
+                }
+                if (v == 2) {
+                    window.location.href = 'http://v2.iviewui.com';
+                }
+            },
+            handleUpdateSettings () {
+                if (window.localStorage.getItem('settings-code')) {
+                    this.settings.code = window.localStorage.getItem('settings-code');
+                }
+
+                if (window.localStorage.getItem('settings-ad')) {
+                    this.settings.ad = window.localStorage.getItem('settings-ad');
+                }
+            },
+        },
+        mounted () {
+            this.handleUpdateSettings();
         }
     }
 </script>

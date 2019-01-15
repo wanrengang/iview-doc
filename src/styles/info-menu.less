@@ -114,6 +114,54 @@
             }
         }
     }
+
+    &-more{
+        &-item{
+            margin-bottom: 16px;
+
+            &-main{
+                text-align: right;
+                .ivu-select{
+                    text-align: left;
+                }
+            }
+            &-title{
+                font-weight: bold;
+                font-size: 14px;
+                margin: 12px 0;
+                &.normal{
+                    font-weight: normal;
+                    margin: 0;
+                }
+            }
+            &-radio{
+                display: inline-block;
+                margin-left: 12px;
+                position: relative;
+                img{
+                    display: inline-block;
+                    width: 42px;
+                    border-radius: 3px;
+                    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+                    cursor: pointer;
+                }
+                &.on:after{
+                    content: '';
+                    display: block;
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 4px;
+                    background: #00c261;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        &-alert.ivu-alert{
+            margin-top: 12px;
+            padding-right: 16px;
+        }
+    }
 }
 
 // 验证码

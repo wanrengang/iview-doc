@@ -88,6 +88,7 @@
                 isSettingShow: false,
                 settingData: {
                     code: '1',  // 1, 2
+                    ad: '1'
                 },
                 adList1: [],
                 adList2: [],
@@ -217,6 +218,9 @@
             handleUpdateSettings () {
                 if (window.localStorage.getItem('settings-code')) {
                     this.settingData.code = window.localStorage.getItem('settings-code');
+                }
+                if (window.localStorage.getItem('settings-ad')) {
+                    this.settingData.ad = window.localStorage.getItem('settings-ad');
                 }
             },
             handleSettingChangeCode (val) {
