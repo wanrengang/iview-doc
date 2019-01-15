@@ -40,16 +40,19 @@
             <img src="../images/bg-index-footer.png">
         </div>
         <div class="index-extra">
-            <Select size="small" value="3" style="width: 60px;margin: 0 10px;" @on-change="handleVersion">
-                <Option value="3">3.x</Option>
-                <Option value="2">2.x</Option>
-                <Option value="1">1.x</Option>
-            </Select>
+            <InfoMenu theme="light" v-if="lang === 'zh-CN'"></InfoMenu>
+            <template v-else>
+                <Select size="small" value="3" style="width: 60px;margin: 0 10px;" @on-change="handleVersion">
+                    <Option value="3">3.x</Option>
+                    <Option value="2">2.x</Option>
+                    <Option value="1">1.x</Option>
+                </Select>
 
-            <Button size="small" @click="handleChangeLang">
-                <template v-if="lang === 'zh-CN'">English</template>
-                <template v-else>中文</template>
-            </Button>
+                <Button size="small" @click="handleChangeLang">
+                    <template v-if="lang === 'zh-CN'">English</template>
+                    <template v-else>中文</template>
+                </Button>
+            </template>
         </div>
     </div>
 </template>
@@ -57,8 +60,10 @@
     import bus from '../../src/components/bus';
     import navigate from '../config/navigate';
     import Config from '../config/config';
+    import InfoMenu from '../../src/components/info.vue';
 
     export default {
+        components: { InfoMenu },
         data () {
             return {
                 lang: this.$lang,

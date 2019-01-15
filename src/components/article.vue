@@ -66,7 +66,10 @@
                                 <a href="https://github.com/iview/iview" target="_blank">iView</a>
                             </li>
                             <li>
-                                <a href="https://github.com/iview/iview-cli" target="_blank">iView Cli</a>
+                                <a href="https://github.com/iview/iview-weapp" target="_blank">iView Weapp</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/iview/iview-loader" target="_blank">iView Loader</a>
                             </li>
                             <li>
                                 <a href="https://github.com/iview/iview-admin" target="_blank">iView Admin</a>
@@ -89,39 +92,75 @@
                         </h4>
                         <ul>
                             <li>
-                                <a href="https://www.talkingdata.com/" target="_blank">TalkingData</a> - {{ $t('index.td') }}
+                                <a href="https://dev.iviewui.com/" target="_blank">iView Developer</a> - {{ $t('index.ivu_dev') }}
                             </li>
                             <li>
-                                <a href="http://mi.talkingdata.com/" target="_blank">Marketing Intelligence</a> - {{ $t('index.td_mi') }}
+                                <a href="https://run.iviewui.com/" target="_blank">iView Run</a> - {{ $t('index.ivu_run') }}
                             </li>
                             <li>
-                                <a href="https://github.com/TalkingData/inmap/" target="_blank">inMap</a> - {{ $t('index.inmap') }}
-                            </li>
-                            <li>
-                                <a href="https://github.com/TalkingData/Fregata" target="_blank">Fregata</a> - {{ $t('index.Fregata') }}
-                            </li>
-                            <li>
-                                <a href="https://github.com/TalkingData/Myna" target="_blank">Myna</a> - {{ $t('index.Myna') }}
-                            </li>
-                            <li>
-                                <a href="https://github.com/TalkingData/owl" target="_blank">OWL</a> - {{ $t('index.OWL') }}
+                                <row>
+                                    <i-col span="4">
+                                        <Tooltip content="Twitter" placement="top">
+                                            <a href="https://twitter.com/iViewUI" target="_blank">
+                                                <img src="../images/icon-social-twitter.svg" class="footer-social-icon">
+                                            </a>
+                                        </Tooltip>
+                                    </i-col>
+                                    <i-col span="4">
+                                        <Poptip trigger="hover" title="扫一扫，关注 iView 公众号">
+                                            <a href="javascript:void(0)" target="_blank">
+                                                <img src="../images/icon-social-wechat.svg" class="footer-social-icon">
+                                            </a>
+                                            <div slot="content">
+                                                <img src="../images/icon-qr-iview.png" class="footer-qr">
+                                            </div>
+                                        </Poptip>
+                                    </i-col>
+                                    <i-col span="4">
+                                        <Tooltip content="iView 知乎专栏" placement="top">
+                                            <a href="https://zhuanlan.zhihu.com/feview" target="_blank">
+                                                <img src="../images/icon-social-zhihu.svg" class="footer-social-icon">
+                                            </a>
+                                        </Tooltip>
+                                    </i-col>
+                                    <i-col span="4">
+                                        <Tooltip content="掘金" placement="top">
+                                            <a href="https://juejin.im/user/56fe494539b0570054f2e032" target="_blank">
+                                                <img src="../images/icon-social-juejin.svg" class="footer-social-icon footer-social-icon-bg">
+                                            </a>
+                                        </Tooltip>
+                                    </i-col>
+                                    <i-col span="4">
+                                        <Tooltip content="活动直播间" placement="top">
+                                            <a href="https://live.bilibili.com/1353202" target="_blank">
+                                                <img src="../images/icon-social-bilibili.svg" class="footer-social-icon">
+                                            </a>
+                                        </Tooltip>
+                                    </i-col>
+                                </row>
                             </li>
                         </ul>
                     </i-col>
                     <i-col span="5" offset="2">
                         <h4>
                             <Icon type="ios-chatbubbles"></Icon>
-                            {{ $t('index.community') }}
+                            {{ $t('index.help') }}
                         </h4>
                         <ul>
                             <li>
-                                <a href="https://github.com/iview/iview/issues" target="_blank">{{ $t('index.feedback') }}</a>
+                                <a href="https://github.com/iview/iview/releases" target="_blank">{{ $t('index.release') }}</a>
+                            </li>
+                            <li>
+                                <a href="https://segmentfault.com/ls/1650000016424063" target="_blank">{{ $t('index.ivu_course') }}</a>
                             </li>
                             <li>
                                 <a href="https://www.iviewui.com/new-issue" target="_blank">{{ $t('index.bug') }}</a>
                             </li>
                             <li>
                                 <a href="https://gitter.im/iview/iview" target="_blank">{{ $t('index.chat') }}</a>
+                            </li>
+                            <li>
+                                <a href="https://stackoverflow.com/questions/tagged/iview" target="_blank">StackOverflow</a>
                             </li>
                             <li>
                                 <a href="https://segmentfault.com/t/iview" target="_blank">SegmentFault</a>
@@ -135,7 +174,7 @@
                             </div>
                             <div class="footer-author">
                                 <a href="https://www.maoyun.tv/?ref=iview" target="_blank">
-                                    <img src="../images/logo-maoyun.png">
+                                    <img src="../images/icon-maocloud.svg">
                                 </a>
                             </div>
                             <div class="footer-version">

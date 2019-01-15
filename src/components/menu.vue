@@ -61,10 +61,10 @@
                         <!--<Icon type="ios-infinite"></Icon>-->
                         {{ $t('index.ecosystem') }}
                     </template>
-                    <Menu-item name="cli" :to="handleGoToMenu('/cli')">
-                        <!--<Icon type="settings"></Icon>-->
-                        {{ $t('index.cli') }}
-                    </Menu-item>
+                    <!--<Menu-item name="cli" :to="handleGoToMenu('/cli')">-->
+                        <!--&lt;!&ndash;<Icon type="settings"></Icon>&ndash;&gt;-->
+                        <!--{{ $t('index.cli') }}-->
+                    <!--</Menu-item>-->
                     <Menu-item name="iview-loader" :to="handleGoToMenu('/docs/guide/iview-loader')">
                         <!--<Icon type="settings"></Icon>-->
                         iView Loader

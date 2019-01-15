@@ -121,8 +121,27 @@
     }
 }
 .footer{
-    background: #fff;
-    color: #666;
+    background: #212121;
+    color: #fff;
+
+    a{
+        color: #fff;
+        font-size: 14px;
+        &:hover{
+            color: #2d8cf0;
+        }
+
+        span{
+            display: inline-block;
+            margin-left: 2px;
+            vertical-align: middle;
+        }
+    }
+
+    &-qr{
+        width: 164px;
+    }
+
     &-main{
         width: 90%;
         margin: 0 auto;
@@ -130,11 +149,14 @@
             padding: 20px 0;
             h4 {
                 margin-bottom: 8px;
+                font-size: 16px;
+                font-weight: normal;
+
                 i{
-                    font-size: 16px;
+                    font-size: 20px;
                     color: #9ea7b4;
                     position: relative;
-                    top: -1px;
+                    top: -2px;
                     margin-right: 2px;
                 }
             }
@@ -173,6 +195,15 @@
         padding: 20px 0 4px;
         color: #c5c8ce;
         //padding-left: 6px;
+    }
+    &-social-icon{
+        width: 32px;
+        height: 32px;
+        vertical-align: middle;
+        &-bg{
+            border-radius: 50%;
+            background-color: #fff;
+        }
     }
 }
 .catalogue{

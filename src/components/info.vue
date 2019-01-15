@@ -1,5 +1,5 @@
 <template>
-    <div class="info-menu">
+    <div class="info-menu" :class="{'info-menu-light': theme === 'light'}">
         <div class="info-menu-sign-out" v-if="app.userInfo">
             <Dropdown @on-click="handleClickItem" trigger="click" class="info-menu-add-dropdown">
                 <Badge :count="countUnread" :offset="[18, 2]">
@@ -217,6 +217,12 @@
         inject: ['app'],
         mixins: [ vaptcha ],
         components: { devVipGrade },
+        props: {
+            theme: {
+                type: String,
+                default: 'dark'
+            }
+        },
         data () {
             return {
                 visibleMore: false,

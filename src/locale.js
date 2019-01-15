@@ -15,7 +15,7 @@ export default {
             notFound: '没有找到相关组件',
             ask: '提问',
             donate: '赞助',
-            links: '相关站点',
+            links: '社区',
             tc: '有逼格的程序员社区',
             td: '用数据的心智去超越',
             td_mi: '免费公开大数据查询平台',
@@ -23,15 +23,23 @@ export default {
             Fregata: '大规模机器学习算法库',
             Myna: 'Android 平台情景感知框架',
             OWL: '分布式监控系统',
-            community: '社区',
+            help: '帮助',
             feedback: '反馈建议',
-            bug: '提交bug',
+            bug: '报告 Bug',
             chat: '在线讨论',
             ecosystem: '生态',
             code_copy: '复制代码',
             code_fullscreen: '放大',
             code_jsfiddle: '在 JSFiddle 中打开',
-            current_version: '当前呈现版本：'
+            current_version: '当前呈现版本：',
+            ivu_dev: '开发者社区',
+            ivu_run: '在线编辑器',
+            social_zhihu: '知乎专栏',
+            social_wechat: '微信公众号',
+            social_bilibili: '直播间',
+            social_juejin: '掘金',
+            release: '更新日志',
+            ivu_course: 'iView 实战教程'
         }
     },
     'en-US': {
@@ -50,7 +58,7 @@ export default {
             notFound: 'Not Found',
             ask: 'Ask',
             donate: 'Donate',
-            links: 'Related Links',
+            links: 'Community',
             tc: 'Programmer Community',
             td: 'Go beyond with the heart and mind of data',
             td_mi: 'Free Public Mobile Big Data Query Platform',
@@ -58,7 +66,7 @@ export default {
             Fregata: 'Machine Learning Library',
             Myna: 'Android Situational Awareness Library',
             OWL: 'Distributed Monitoring System',
-            community: 'Community',
+            help: 'Help',
             feedback: 'Feedback',
             bug: 'Bug Report',
             chat: 'Chat Room',
@@ -66,7 +74,15 @@ export default {
             code_copy: 'Copy code',
             code_fullscreen: 'Fullscreen',
             code_jsfiddle: 'Open in JSFiddle',
-            current_version: 'Current Version:'
+            current_version: 'Current Version:',
+            ivu_dev: 'Developer Community',
+            ivu_run: 'iView Online Editor',
+            social_zhihu: 'ZhiHu',
+            social_wechat: 'Wechat',
+            social_bilibili: 'Live',
+            social_juejin: 'Juejin',
+            release: 'Change Log',
+            ivu_course: 'iView Course'
         }
     }
 }
