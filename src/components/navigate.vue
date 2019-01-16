@@ -12,6 +12,9 @@
                     <img :src="item.img">
                 </div>
             </a>
+            <div class="wrapper-aside-ask">
+                <Button size="small" type="primary" ghost @click="handleDonate">成为赞助商</Button>
+            </div>
             <Affix :offset-top="64" class="asd-affix" @on-change="handleChangeAdAffix">
                 <Carousel v-model="adCarousel" autoplay :autoplay-speed="5000" radius-dot v-if="app.adList4.length && adCarouselShow" arrow="never">
                     <CarouselItem v-for="item in carouselList" :key="item.id">

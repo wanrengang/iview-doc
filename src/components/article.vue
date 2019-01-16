@@ -47,6 +47,9 @@
                                 <a v-for="item in app.adList2" :href="item.link" :key="item.id" @click="handleAsideAd(item.id)" target="_blank" class="wrapper-aside wrapper-aside-no-padding">
                                     <img :src="item.img">
                                 </a>
+                                <div class="wrapper-aside-ask">
+                                    <Button size="small" type="primary" ghost @click="donate = true">成为赞助商</Button>
+                                </div>
                             </template>
                         </Affix>
                     </i-col>
@@ -211,7 +214,7 @@
         <Modal v-model="donate" title="成为 iView 赞助商" @on-ok="handleModalClose" @on-cancel="handleModalClose" width="600" class-name="vertical-center-modal">
             <div class="ivu-article">
                 <p>如果您有品牌推广、活动推广、招聘推广、社区合作的需求，欢迎联系我们。</p>
-                <p>联系邮箱 <a href="mailto:admin@aresn.com">admin@aresn.com</a> 咨询。</p>
+                <p>联系邮箱 <a href="mailto:admin@aresn.com">admin@aresn.com</a> 咨询文档 PV、UV 及投放价格。</p>
                 <p>位置如下图所示：</p>
                 <div>
                     <Carousel v-if="donate" v-model="adCarousel" autoplay :autoplay-speed="5000" dots="outside">
