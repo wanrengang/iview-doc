@@ -346,6 +346,7 @@
                     method: 'get',
                     url: 'https://api.github.com/repos/iview/iview'
                 }).then(res => {
+                    res.data.stargazers_count = res.data.stargazers_count.toLocaleString();
                     this.githubInfo = res.data;
                 });
             }

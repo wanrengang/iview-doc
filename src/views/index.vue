@@ -27,7 +27,10 @@
                     <div class="index-actions">
                         <Button class="index-btn" size="large" type="primary" shape="circle" :to="handleGoToMenu('/docs/guide/install')">{{ $t('index.start') }}</Button>
                         <Button class="index-btn" size="large" type="primary" shape="circle" ghost icon="ios-construct" to="https://dev.iviewui.com" target="_blank" v-if="lang === 'zh-CN'">开发者社区</Button>
-                        <Button class="index-btn" size="large" type="primary" shape="circle" ghost icon="logo-github" to="https://github.com/iview/iview" target="_blank">GitHub</Button>
+                        <Tooltip placement="top" :always="app.githubInfo.stargazers_count !== 'Loading'" theme="light">
+                            <Button class="index-btn" size="large" type="primary" shape="circle" ghost icon="logo-github" to="https://github.com/iview/iview" target="_blank">GitHub</Button>
+                            <strong slot="content">Star {{ app.githubInfo.stargazers_count }}</strong>
+                        </Tooltip>
                         <Button class="index-btn" size="large" type="primary" shape="circle" ghost to="https://gitee.com/icarusion/iview" target="_blank" v-if="lang === 'zh-CN'">
                             <Icon custom="iconfont icon-mayun" size="12"></Icon>
                             码云
@@ -63,6 +66,7 @@
     import InfoMenu from '../../src/components/info.vue';
 
     export default {
+        inject: ['app'],
         components: { InfoMenu },
         data () {
             return {

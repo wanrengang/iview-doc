@@ -166,7 +166,7 @@
 
             <Row class="info-menu-more-item" type="flex" justify="center" align="middle">
                 <i-col span="12">
-                    <div class="info-menu-more-item-title normal">是否显示赞助广告</div>
+                    <div class="info-menu-more-item-title normal">是否显示赞助商广告</div>
                 </i-col>
                 <i-col span="12">
                     <div class="info-menu-more-item-main">
