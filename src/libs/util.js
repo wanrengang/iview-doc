@@ -69,11 +69,15 @@ export function scrollTop(el, from = 0, to, duration = 500) {
     scroll(from, to, step);
 }
 
-// const ajaxUrl = 'https://api.iviewui.com';
-const ajaxUrl = 'http://127.0.0.1:9890';
+const ajaxUrl = 'https://api.iviewui.com';
+// const ajaxUrl = 'http://127.0.0.1:9890';
 
 util.ajax = axios.create({
     baseURL: ajaxUrl,
+    timeout: 30000
+});
+
+util.request = axios.create({
     timeout: 30000
 });
 

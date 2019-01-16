@@ -99,14 +99,7 @@
                             </li>
                             <li>
                                 <row>
-                                    <i-col span="4">
-                                        <Tooltip content="Twitter" placement="top">
-                                            <a href="https://twitter.com/iViewUI" target="_blank">
-                                                <img src="../images/icon-social-twitter.svg" class="footer-social-icon">
-                                            </a>
-                                        </Tooltip>
-                                    </i-col>
-                                    <i-col span="4">
+                                    <i-col span="5">
                                         <Poptip trigger="hover" title="扫一扫，关注 iView 公众号">
                                             <a href="javascript:void(0)" target="_blank">
                                                 <img src="../images/icon-social-wechat.svg" class="footer-social-icon">
@@ -116,21 +109,40 @@
                                             </div>
                                         </Poptip>
                                     </i-col>
-                                    <i-col span="4">
+                                    <i-col span="5">
+                                        <Poptip trigger="hover" title="扫一扫，免费加入 QQ 群">
+                                            <a href="javascript:void(0)" target="_blank">
+                                                <img src="../images/icon-social-qq.svg" class="footer-social-icon">
+                                            </a>
+                                            <div slot="content">
+                                                <img src="../images/qqgroup1.png" class="footer-qr">
+                                            </div>
+                                        </Poptip>
+                                    </i-col>
+                                    <i-col span="5">
                                         <Tooltip content="iView 知乎专栏" placement="top">
                                             <a href="https://zhuanlan.zhihu.com/feview" target="_blank">
                                                 <img src="../images/icon-social-zhihu.svg" class="footer-social-icon">
                                             </a>
                                         </Tooltip>
                                     </i-col>
-                                    <i-col span="4">
+                                </row>
+                                <row style="padding: 0">
+                                    <i-col span="5">
+                                        <Tooltip content="Twitter" placement="top">
+                                            <a href="https://twitter.com/iViewUI" target="_blank">
+                                                <img src="../images/icon-social-twitter.svg" class="footer-social-icon">
+                                            </a>
+                                        </Tooltip>
+                                    </i-col>
+                                    <i-col span="5">
                                         <Tooltip content="掘金" placement="top">
                                             <a href="https://juejin.im/user/56fe494539b0570054f2e032" target="_blank">
                                                 <img src="../images/icon-social-juejin.svg" class="footer-social-icon footer-social-icon-bg">
                                             </a>
                                         </Tooltip>
                                     </i-col>
-                                    <i-col span="4">
+                                    <i-col span="5">
                                         <Tooltip content="活动直播间" placement="top">
                                             <a href="https://live.bilibili.com/1353202" target="_blank">
                                                 <img src="../images/icon-social-bilibili.svg" class="footer-social-icon">

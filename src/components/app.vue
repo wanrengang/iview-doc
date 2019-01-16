@@ -107,6 +107,10 @@
                 countUnread_comment: 0,
                 countUnread_follow: 0,
                 countUnread_system: 0,
+
+                githubInfo: {
+                    stargazers_count: 'Loading'
+                }
             }
         },
         computed: {
@@ -205,6 +209,8 @@
             this.getAdList(3);
             this.getAdList(4);
 
+
+            this.getGitHubInfo();
         },
         methods: {
             getTodayUnix () {
@@ -254,7 +260,7 @@
             getAdList (name) {
                 $.ajax({
                     method: 'get',
-                    url: '/v1/asd/list3',
+                    url: '/v1/asd/qe/1',
                     params: {
                         name: name
                     }
@@ -334,6 +340,14 @@
                         }
                     });
                 }
+            },
+            getGitHubInfo () {
+                $.request({
+                    method: 'get',
+                    url: 'https://api.github.com/repos/iview/iview'
+                }).then(res => {
+                    this.githubInfo = res.data;
+                });
             }
         }
     }

@@ -204,6 +204,45 @@
                     <!--</div>-->
                 <!--</i-col>-->
             <!--</Row>-->
+            <Divider>社区</Divider>
+            <row>
+                <i-col span="12">
+                    <Tooltip content="关注 GitHub" placement="top">
+                        <Button size="large" to="https://github.com/iview/iview" target="_blank" icon="logo-github">
+                            <strong>Star {{ app.githubInfo.stargazers_count }}</strong>
+                        </Button>
+                    </Tooltip>
+                </i-col>
+                <i-col span="12">
+                    <row>
+                        <i-col span="8">
+                            <Tooltip content="iView 知乎专栏" placement="top">
+                                <a href="https://zhuanlan.zhihu.com/feview" target="_blank">
+                                    <img src="../images/icon-social-zhihu.svg" class="footer-social-icon">
+                                </a>
+                            </Tooltip>
+                        </i-col>
+                        <i-col span="8">
+                            <Tooltip content="掘金" placement="top">
+                                <a href="https://juejin.im/user/56fe494539b0570054f2e032" target="_blank">
+                                    <img src="../images/icon-social-juejin.svg" class="footer-social-icon footer-social-icon-bg">
+                                </a>
+                            </Tooltip>
+                        </i-col>
+                        <i-col span="8">
+                            <Tooltip content="活动直播间" placement="top">
+                                <a href="https://live.bilibili.com/1353202" target="_blank">
+                                    <img src="../images/icon-social-bilibili.svg" class="footer-social-icon">
+                                </a>
+                            </Tooltip>
+                        </i-col>
+                    </row>
+                </i-col>
+            </row>
+            <div class="info-menu-more-social">
+                <img src="../images/icon-qr-qq-wechat.png">
+            </div>
+            <div class="info-menu-more-smile"><strong>: )</strong></div>
         </Drawer>
     </div>
 </template>
@@ -247,7 +286,8 @@
                     code: '1',
                     ad: '1',
                     colorWeak: '2'
-                }
+                },
+                social: '', // qq || wechat
             }
         },
         computed: {
@@ -413,6 +453,10 @@
                 this.app.settingData.colorWeak = value;
                 window.localStorage.setItem('settings-color-weak', value);
                 this.app.handleChangeBodyColorWeak();
+            },
+            handleChangeSocial (type) {
+                _hmt.push(['_trackEvent', 'info-menu-social' + type, 'click']);
+                this.social = type;
             }
         },
         mounted () {
