@@ -110,7 +110,9 @@
 
                 githubInfo: {
                     stargazers_count: 'Loading'
-                }
+                },
+
+                adBlock: false
             }
         },
         computed: {
@@ -260,7 +262,7 @@
             getAdList (name) {
                 $.ajax({
                     method: 'get',
-                    url: '/v1/asd/qe/1',
+                    url: '/v1/asd/list',
                     params: {
                         name: name
                     }
@@ -272,6 +274,8 @@
                     } else {
                         this[`adList${name}`] = data.data;
                     }
+                }).catch(() => {
+                    this.adBlock = true;
                 })
             },
             getUserInfo (callback) {

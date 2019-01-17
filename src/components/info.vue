@@ -241,6 +241,11 @@
             </row>
             <div class="info-menu-more-social">
                 <img src="../images/icon-qr-qq-wechat.png">
+                <row>
+                    <i-col span="12" style="margin-left: -7px">
+                        QQ 群号：621780943
+                    </i-col>
+                </row>
             </div>
             <div class="info-menu-more-smile"><strong>: )</strong></div>
         </Drawer>

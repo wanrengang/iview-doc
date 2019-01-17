@@ -8,6 +8,17 @@
                 <nav-menu :active-key="activeKey" @on-change="handleNavMenuChange"></nav-menu>
             </div>
             <div class="wrapper-container">
+                <Affix class="wrapper-container-tip-out" :offset-top="60" v-if="app.lang === 'zh-CN' && app.adBlock && (!app.userInfo || app.userInfo.vip_grade === 1)">
+                    <Alert banner closable type="warning" show-icon>
+                        <div class="wrapper-container-tip-title">
+                            友情提示
+                        </div>
+                        <div class="wrapper-container-tip" slot="desc">
+                            我们检测到您可能使用了 AdBlock 或 Adblock Plus。iView 是一款开源的免费软件，赞助商广告是开源项目能够持续发展的动力。<br>
+                            如果您不想显示赞助商的广告，请在 iView Developer <a href="https://dev.iviewui.com/upgrade" target="_blank">开通付费会员</a> 来设置关闭赞助商广告。
+                        </div>
+                    </Alert>
+                </Affix>
                 <Row>
                     <i-col span="4" class="wrapper-navigate">
                         <Navigate :type="activeKey"></Navigate>
